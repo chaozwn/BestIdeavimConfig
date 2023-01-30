@@ -45,6 +45,10 @@ nmap gm <action>(MethodUp)
 nmap gi <action>(GotoImplementation)
 " 寻找函数使用的地方
 nmap gu <action>(GotoDeclaration)
+" 后退
+nmap gb <action>(Back)
+" 前进
+nmap gf <action>(Forward)
 " 回到上一次修改的地方
 nmap ga '.
 
@@ -84,6 +88,8 @@ nmap <leader>fm <action>(ReformatCode) \| <action>(OptimizeImports)
 
 " lsp: 重命名
 nmap <leader>lr <action>(RenameElement)
+" 查看错误提示
+nmap <leader>li <action>(ShowIntentionActions)
 
 " 关闭搜索高亮
 nmap <leader>nh :nohlsearch<CR>
@@ -93,6 +99,7 @@ nmap <leader>ss <action>(FileStructurePopup)
 " 查看参数
 nmap <leader>sp <action>(ParameterInfo)
 
+
 " 快速关闭当前窗口
 nmap <leader>c :q!<CR>
 
@@ -100,6 +107,13 @@ nmap <leader>c :q!<CR>
 nmap <leader>e :NERDTree<CR>
 " 关闭project目录
 nmap <leader>E :NERDTreeClose<CR>
+
+" ================================================================================================
+" = w开头，窗口相关====================================
+" ================================================================================================
+" 搜索全局
+nmap <leader>fg <action>(FindInPath)
+
 " ================================================================================================
 " = w开头，窗口相关====================================
 " ================================================================================================
