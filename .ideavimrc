@@ -30,47 +30,54 @@ set hlsearch
 set smartcase
 set ignorecase
 
-" set keep-english-in-normal
-
 " ================================================================================================
-" = No Leader Keymaps =====================================
+" = g开头 ====================================
 " ================================================================================================
+" 寻找下一个错误
 nmap ge <action>(GotoNextError)
+" 回到上一个错误
 nmap gp <action>(GotoPreviousError)
+" 进入测试方法
 nmap gt <action>(GotoTest)
+" 回到函数方法上
 nmap gm <action>(MethodUp)
+" 寻找接口实现的
 nmap gi <action>(GotoImplementation)
-" last changed in current buffer(file)
+" 寻找函数使用的地方
+nmap gu <action>(GotoDeclaration)
+" 回到上一次修改的地方
 nmap ga '.
 
-" virtual mode move lines
+" ================================================================================================
+" = Ctrl开头 ====================================
+" ================================================================================================
+" 可视化模式下，选中行可以上下移动
 vmap <C-j> <action>(MoveStatementDown)
 vmap <C-k> <action>(MoveStatementUp)
-
-" 切换tab
-nmap L <action>(NextTab)
-nmap H <action>(PreviousTab)
 
 " 切换spliter
 nmap <C-h> <action>(PrevSplitter)
 nmap <C-l> <action>(NextSplitter)
 
+" ================================================================================================
+" = 单字母大写 ====================================
+" ================================================================================================
+" 切换tab
+nmap L <action>(NextTab)
+nmap H <action>(PreviousTab)
+
+" ================================================================================================
+" = 其他 ====================================
+" ================================================================================================
 " 可视化模式下，paste之后不会替换yank的内容
 vmap p "_dp
 
 " ================================================================================================
 " = Leader Keymaps =====================================
 " ================================================================================================
-
 " leaderkey
 nmap <SPACE> <Nop>
 let mapleader=" "
-
-" d: 打开git日志
-nmap <leader>dd <action>(Vcs.ShowTabbedFileHistory)
-
-" h: 隐藏active窗口"
-nmap <leader>h <action>(HideActiveWindow)
 
 " 格式化代码
 nmap <leader>fm <action>(ReformatCode) \| <action>(OptimizeImports)
@@ -81,9 +88,21 @@ nmap <leader>lr <action>(RenameElement)
 " 关闭搜索高亮
 nmap <leader>nh :nohlsearch<CR>
 
+" 查看文件的structure
+nmap <leader>ss <action>(FileStructurePopup)
 " 查看参数
 nmap <leader>sp <action>(ParameterInfo)
 
+" 快速关闭当前窗口
+nmap <leader>c :q!<CR>
+
+" 打开project目录
+nmap <leader>e :NERDTree<CR>
+" 关闭project目录
+nmap <leader>E :NERDTreeClose<CR>
+" ================================================================================================
+" = w开头，窗口相关====================================
+" ================================================================================================
 " 关闭所有窗口 ️
 nmap <leader>wa <action>(CloseAllEditors)
 " 关闭除了激活窗口以外的窗口
@@ -95,14 +114,9 @@ nmap <leader>wv <action>(SplitVertically)
 " 分离出一个水平的窗口
 nmap <leader>wh <action>(SplitHorizontally)
 
-" 快速关闭当前窗口
-nmap <leader>c :q!<CR>
-
-" 打开project目录
-nmap <leader>e :NERDTree<CR>
-" 关闭project目录
-nmap <leader>E :NERDTreeClose<CR>
-
+" ================================================================================================
+" = e开头，用于抽离方法====================================
+" ================================================================================================
 " e: 用于抽离方法,可视化模式下，将选中到变量抽离出来
 " extract method/function
 vmap <leader>em <action>(ExtractMethod)
