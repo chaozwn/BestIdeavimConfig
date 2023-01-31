@@ -82,14 +82,18 @@ vmap p "_dp
 " leaderkey
 nmap <SPACE> <Nop>
 let mapleader=" "
+let g:mapleader=" "
+set timeoutlen=2000
 
 " 格式化代码
 nmap <leader>fm <action>(ReformatCode) \| <action>(OptimizeImports)
 
 " lsp: 重命名
 nmap <leader>lr <action>(RenameElement)
-" 查看错误提示
+" 展示目的
 nmap <leader>li <action>(ShowIntentionActions)
+" 展示错误提示
+nmap <leader>le <action>(ShowErrorDescription)
 
 " 关闭搜索高亮
 nmap <leader>nh :nohlsearch<CR>
