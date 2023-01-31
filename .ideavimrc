@@ -44,7 +44,7 @@ nmap gm <action>(MethodUp)
 " 寻找接口实现的
 nmap gi <action>(GotoImplementation)
 " 寻找函数使用的地方
-nmap gu <action>(GotoDeclaration)
+nmap gd <action>(GotoDeclaration)
 " 后退
 nmap gb <action>(Back)
 " 前进
