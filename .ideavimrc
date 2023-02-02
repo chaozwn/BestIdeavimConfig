@@ -94,15 +94,19 @@ nmap <leader>lr <action>(RenameElement)
 nmap <leader>li <action>(ShowIntentionActions)
 " 展示错误提示
 nmap <leader>le <action>(ShowErrorDescription)
+" 查看文件的structure
+nmap <leader>ls <action>(FileStructurePopup)
+" 查看参数
+nmap <leader>lp <action>(ParameterInfo)
+" 查看类型
+nmap <leader>lt <action>(ExpressionTypeInfo)
+" 查看java doc 一般用来查看数据类型
+nmap <leader>lj <action>(QuickJavaDoc)
+
+" s开头还没用
 
 " 关闭搜索高亮
 nmap <leader>nh :nohlsearch<CR>
-
-" 查看文件的structure
-nmap <leader>ss <action>(FileStructurePopup)
-" 查看参数
-nmap <leader>sp <action>(ParameterInfo)
-
 
 " 快速关闭当前窗口
 nmap <leader>c :q!<CR>
