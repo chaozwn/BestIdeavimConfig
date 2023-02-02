@@ -74,7 +74,7 @@ nmap H <action>(PreviousTab)
 " = 其他 ====================================
 " ================================================================================================
 " 可视化模式下，paste之后不会替换yank的内容
-vmap p "_dp
+vmap p "_dP
 
 " ================================================================================================
 " = Leader Keymaps =====================================
@@ -102,6 +102,10 @@ nmap <leader>lp <action>(ParameterInfo)
 nmap <leader>lt <action>(ExpressionTypeInfo)
 " 查看java doc 一般用来查看数据类型
 nmap <leader>lj <action>(QuickJavaDoc)
+" 代码包裹一层
+nmap <leader>lw <action>(SurroundWith)
+" 代码去掉包裹
+nmap <leader>lu <action>(Unwrap)
 
 " s开头还没用
 
