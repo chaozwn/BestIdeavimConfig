@@ -17,6 +17,7 @@ Plug 'easymotion/vim-easymotion'
 " = Basic settings =====================================
 " ================================================================================================
 set clipboard+=unnamed
+set clipboard+=ideaput
 set scrolloff=30
 set history=200
 set easymotion
@@ -30,6 +31,35 @@ set hlsearch
 set smartcase
 set ignorecase
 
+nmap <C-[> <Esc>
+vmap <C-[> <Esc>
+
+" Insert mode shortcut
+inoremap <C-h> <Left>
+inoremap <C-j> <Down>
+inoremap <C-k> <Up>
+inoremap <C-l> <Right>
+inoremap <C-a> <Home>
+inoremap <C-e> <End>
+inoremap <C-d> <Delete>
+inoremap <C-b> <Backspace>
+
+" ================================================================================================
+" = Ctrl开头 ====================================
+" ================================================================================================
+" 可视化模式下，选中行可以上下移动
+vmap <C-j> <action>(MoveStaementDown)
+vmap <C-k> <action>(MoveStatementUp)
+
+" 切换spliter
+nmap <C-h> <action>(PrevSplitter)
+nmap <C-l> <action>(NextSplitter)
+" 切换tab
+nmap <C-j> <action>(NextTab)
+nmap <C-k> <action>(PreviousTab)
+
+nmap L g_
+nmap H ^
 " ================================================================================================
 " = g开头 ====================================
 " ================================================================================================
@@ -51,24 +81,9 @@ nmap gb <action>(Back)
 nmap gf <action>(Forward)
 " 回到上一次修改的地方
 nmap ga '.
+" 查找使用过的地方
+nmap gu <action>(FindUsages)
 
-" ================================================================================================
-" = Ctrl开头 ====================================
-" ================================================================================================
-" 可视化模式下，选中行可以上下移动
-vmap <C-j> <action>(MoveStatementDown)
-vmap <C-k> <action>(MoveStatementUp)
-
-" 切换spliter
-nmap <C-h> <action>(PrevSplitter)
-nmap <C-l> <action>(NextSplitter)
-
-" ================================================================================================
-" = 单字母大写 ====================================
-" ================================================================================================
-" 切换tab
-nmap L <action>(NextTab)
-nmap H <action>(PreviousTab)
 
 " ================================================================================================
 " = 其他 ====================================
@@ -103,9 +118,9 @@ nmap <leader>lt <action>(ExpressionTypeInfo)
 " 查看java doc 一般用来查看数据类型
 nmap <leader>lj <action>(QuickJavaDoc)
 " 代码包裹一层
-nmap <leader>lw <action>(SurroundWith)
+vmap <leader>lw <action>(SurroundWith)
 " 代码去掉包裹
-nmap <leader>lu <action>(Unwrap)
+vmap <leader>lu <action>(Unwrap)
 
 " s开头还没用
 
