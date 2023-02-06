@@ -48,15 +48,15 @@ inoremap <C-b> <Backspace>
 " = Ctrl开头 ====================================
 " ================================================================================================
 " 可视化模式下，选中行可以上下移动
-vmap <C-j> <action>(MoveStaementDown)
-vmap <C-k> <action>(MoveStatementUp)
+vmap <C-j> <action>(MoveLineDown)
+vmap <C-k> <action>(MoveLineUp)
 
 " 切换spliter
 nmap <C-h> <action>(PrevSplitter)
 nmap <C-l> <action>(NextSplitter)
 " 切换tab
-nmap <C-j> <action>(NextTab)
-nmap <C-k> <action>(PreviousTab)
+nmap <C-j> <action>(PreviousTab)
+nmap <C-k> <action>(NextTab)
 
 nmap L g_
 nmap H ^
@@ -167,6 +167,8 @@ vmap <leader>ec <action>(IntroduceConstant)
 vmap <leader>ef <action>(IntroduceField)
 " extract variable
 vmap <leader>ev <action>(IntroduceVariable)
+" Inline" variable
+vmap <leader>ei <action>(Inline)
 
 " 输入法自动切换
 let context_aware=0
