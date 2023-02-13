@@ -13,9 +13,6 @@
 " 双空格 + w 触发移动, 双空格 + f，触发搜索 使用大写将全选文本, 也可以使用y,c,v功能
 " Plug 'easymotion/vim-easymotion'
 
-" ideavim多光标
-" Plug 'terryma/vim-multiple-cursors'
-
 " ================================================================================================
 " = Basic settings =====================================
 " ================================================================================================
@@ -45,9 +42,9 @@ set NERDTree
 " 多光标文件操作"
 nmap <C-n> <Plug>NextWholeOccurrence
 xmap <C-n> <Plug>NextWholeOccurrence
-nmap <C-x> <Plug>SkipOccurrence
+" nmap <C-x> <Plug>SkipOccurrence
 xmap <C-x> <Plug>SkipOccurrence
-nmap <C-p> <Plug>RemoveOccurrence
+" nmap <C-p> <Plug>RemoveOccurrence
 xmap <C-p> <Plug>RemoveOccurrence
 nmap <S-C-n> <Plug>AllWholeOccurrences
 xmap <S-C-n> <Plug>AllWholeOccurrences
@@ -56,19 +53,15 @@ nmap <C-[> <Esc>
 vmap <C-[> <Esc>
 
 " Insert mode shortcut
-" inoremap <C-h> <Left>
-" inoremap <C-j> <Down>
-" inoremap <C-k> <Up>
-" inoremap <C-l> <Right>
-" inoremap <C-a> <Home>
-" inoremap <C-e> <End>
 " inoremap <C-d> <Delete>
-" inoremap <C-b> <Backspace>
+inoremap <Backspace> <Delete>
 " 解释下这里为什么注释掉上面这部分，因为可以使用原生的vim映射
 " <C-h> 默认是删除前一个字母等于<Backspace>
 " <C-w> 默认是删除前一个单词
 " <C-u> 默认是删除到行首
-inoremap <Backspace> <Delete>
+
+" <C-o> 回到之前的位置
+" <C-i> 回到来之前位置的上一个位置
 
 " ================================================================================================
 " = Ctrl开头 ====================================
@@ -160,7 +153,8 @@ vmap <leader>lu <action>(Unwrap)
 nmap <leader>nh :nohlsearch<CR>
 
 " 快速关闭当前窗口
-nmap <leader>c :q!<CR>
+" nmap <leader>c :q!<CR>
+nmap <M-w> <action>(CloseContent)
 
 " 打开project目录
 nmap <leader>e :NERDTree<CR>
@@ -186,6 +180,9 @@ nmap <leader>wm <action>(UnsplitAll) \| <action>(HideAllWindows)
 nmap <leader>wv <action>(SplitVertically)
 " 分离出一个水平的窗口
 nmap <leader>wh <action>(SplitHorizontally)
+" 关闭当前的tab
+nmap <leader>wc <action>(CloseActiveTab)
+
 
 " ================================================================================================
 " = e开头，用于抽离方法====================================
