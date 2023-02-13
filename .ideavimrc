@@ -54,7 +54,7 @@ vmap <C-[> <Esc>
 
 " Insert mode shortcut
 " inoremap <C-d> <Delete>
-inoremap <Backspace> <Delete>
+" inoremap <Backspace> <Delete>
 " 解释下这里为什么注释掉上面这部分，因为可以使用原生的vim映射
 " <C-h> 默认是删除前一个字母等于<Backspace>
 " <C-w> 默认是删除前一个单词
