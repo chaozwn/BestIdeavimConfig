@@ -77,10 +77,10 @@ nmap <C-S-l> <action>(NextSplitter)
 nmap <C-S-j> <action>(PreviousTab)
 nmap <C-S-k> <action>(NextTab)
 
-"nmap L g_
-"nmap H ^
-nmap <C-l> g_
-nmap <C-h> ^
+nmap L g_
+nmap H ^
+" nmap <C-l> g_
+" nmap <C-h> ^
 
 " ctrl-0 ctrl-t 待用
 
@@ -88,7 +88,7 @@ nmap <C-h> ^
 " = g开头 ====================================
 " ================================================================================================
 " 寻找下一个错误
-nmap ge <action>(GotoNextError)
+nmap gn <action>(GotoNextError)
 " 回到上一个错误
 nmap gp <action>(GotoPreviousError)
 " 进入测试方法
