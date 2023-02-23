@@ -12,7 +12,6 @@
                 "control"
               ],
               "optional": [
-                "any"
               ]
             }
           },
@@ -33,7 +32,6 @@
             "key_code": "delete_or_backspace",
             "modifiers": {
               "optional": [
-                "any"
               ]
             }
           },
@@ -57,7 +55,6 @@
                 "control"
               ],
               "optional": [
-                "any"
               ]
             }
           },
