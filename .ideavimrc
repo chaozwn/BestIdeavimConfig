@@ -38,6 +38,9 @@ set easymotion
 set multiple-cursors
 " 设置文件树
 set NERDTree
+" 交换变量
+" cx{motion} 标记一个区域，重复使用就会交换两个区域的值,cxx交换整行,cxc清空缓存, 在visual模式下使用X
+set exchange
 
 " 多光标文件操作"
 nmap <C-n> <Plug>NextWholeOccurrence
@@ -83,6 +86,9 @@ nmap H ^
 " nmap <C-h> ^
 
 " ctrl-0 ctrl-t 待用
+
+" 关于代码折叠 zc折叠代码 zo展开代码
+
 
 " ================================================================================================
 " = g开头 ====================================
@@ -157,9 +163,10 @@ nmap <leader>nh :nohlsearch<CR>
 nmap <M-w> <action>(CloseContent)
 
 " 打开project目录
-nmap <leader>e :NERDTree<CR>
+nmap <leader>te :NERDTree<CR>
 " 关闭project目录
-nmap <leader>E :NERDTreeClose<CR>
+nmap <leader>tc :NERDTreeClose<CR>
+
 
 " ================================================================================================
 " = w开头，窗口相关====================================
