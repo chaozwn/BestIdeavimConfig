@@ -109,8 +109,8 @@ nmap gd <action>(GotoDeclaration)
 nmap gb <action>(Back)
 " 前进
 nmap gf <action>(Forward)
-" 回到上一次修改的地方
-nmap ga '.
+" 回到上一次修改的地方,使用vim原生的跳转
+" nmap ga '.
 " 查找使用过的地方
 nmap gu <action>(FindUsages)
 
@@ -157,6 +157,8 @@ vmap <leader>lu <action>(Unwrap)
 
 " 关闭搜索高亮
 nmap <leader>nh :nohlsearch<CR>
+" 高亮当前block
+nmap <leader>rh :action Rainbow.ScopeOutsideHighlightingRestrainAction<CR>
 
 " 快速关闭当前窗口
 " nmap <leader>c :q!<CR>
