@@ -18,7 +18,7 @@
 " ================================================================================================
 set clipboard+=unnamed
 set clipboard+=ideaput
-set scrolloff=30
+" set scrolloff=30
 set history=200
 
 set number
@@ -148,6 +148,8 @@ nmap <leader>lp <action>(ParameterInfo)
 nmap <leader>lt <action>(ExpressionTypeInfo)
 " 查看java doc 一般用来查看数据类型
 nmap <leader>lj <action>(QuickJavaDoc)
+" 调用Generate
+nmap <leader>lg <action>(Generate)
 " 代码包裹一层
 vmap <leader>lw <action>(SurroundWith)
 " 代码去掉包裹
