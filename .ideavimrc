@@ -192,8 +192,7 @@ nmap <leader>wv <action>(SplitVertically)
 " 分离出一个水平的窗口
 nmap <leader>wh <action>(SplitHorizontally)
 " 关闭当前的tab
-nmap <leader>wc <action>(CloseActiveTab)
-
+" nmap <leader>wc <action>(CloseActiveTab)
 
 " ================================================================================================
 " = e开头，用于抽离方法====================================
