@@ -1,139 +1,270 @@
-" ================================================================================================
-" = Extensions =====================================
-" ================================================================================================
-" ds 删除, ys 新增，vS 虚拟化模式增加
-" link: https://github.com/tpope/vim-surround
-" Plug 'tpope/vim-surround'
+" ================================================
+" ============ Basic settings ====================
+" ================================================
+set idearefactormode=keep
+set visualbell
+set noerrorbells
+set noideadelaymacro
+set notimeout
+" set timeoutlen=500
+set ideajoin
 
-" nerdtree管理文件树
-" link: https://github.com/JetBrains/ideavim/wiki/NERDTree-support
-" o open ,go open cursor not move , i hsplit , s vsplit
-" Plug 'preservim/nerdtree'
-
-" 双空格 + w 触发移动, 双空格 + f，触发搜索 使用大写将全选文本, 也可以使用y,c,v功能
-" Plug 'easymotion/vim-easymotion'
-
-" ================================================================================================
-" = Basic settings =====================================
-" ================================================================================================
-set clipboard+=unnamed
+"粘贴板共享
+set clipboard+='unnamed,unnamedplus'
 set clipboard+=ideaput
-" set scrolloff=30
+
+"移动光标的时候周围保留8行
+set scrolloff=8
+
+"记住历史操作200条
 set history=200
 
+"使用相对行号
 set number
 set relativenumber
 
-" search
-set incsearch
-set hlsearch
+"搜索大小写不敏感,除非包含大写
 set smartcase
 set ignorecase
 
-" 方便拓展括号
-set surround
-" 设置搜索
-set easymotion
+"边输入边搜索
+set incsearch
+"搜索高亮
+set hlsearch
+
+" 显示当前模式
+set showcmd
+set showmode
+
+" leaderkey
+nmap <SPACE> <Nop>
+let mapleader=" "
+let g:mapleader=" "
+
+" 高亮当前block
+nmap <leader>rh :action Rainbow.ScopeOutsideHighlightingRestrainAction<CR>
+
+
+
+
+" 输入法自动切换
+let context_aware=0
+let keep_input_source_in_normal="com.apple.keylayout.ABC"
+let keep_input_source_in_insert="com.sogou.inputmethod.sogou.pinyin"
+set keep-english-in-normal-and-restore-in-insert
+
+
+" ================================================
+" ============ key bindings ====================
+" ================================================
+" Do not overwrite unnamed register with x and s
+nnoremap x "_x
+" nnoremap s "_s
+
+" 交换$和g_
+nnoremap <silent> $ g_
+nnoremap <silent> g_ $
+vnoremap <silent> $ g_
+vnoremap <silent> g_ $
+
+" 命令行下CtrL + j/k上一个下一个
+" cmap <C-j> <C-n>
+" cmap <C-k> <C-p>
+
+" 保存文件"
+nnoremap <silent> <leader>w :w<CR>
+nnoremap <silent> <leader>wq :wqa!<CR>
+
+" 退出
+nnoremap <silent> <leader>q :qa!<CR>
+
+" 当一行过长的时候jk移动可以替代gj和gk"
+nnoremap j gj
+nnoremap k gk
+
+" 上下滚动浏览
+nnoremap <silent> <C-j> 5j
+nnoremap <silent> <C-k> 5k
+vnoremap <silent> <C-j> 5j
+vnoremap <silent> <C-k> 5k
+nnoremap <silent> <C-d> 10j
+nnoremap <silent> <C-u> 10k
+
+" 开启魔术搜索
+" nnoremap / /\\v
+" vnoremap / /\\v
+
+" 在visual模式下缩进代码，缩进之后任然可以继续选中区域
+vnoremap <silent> < <gv
+vnoremap <silent> > >gv
+
+" 可视化模式下，选中行可以上下移动
+vmap J <action>(MoveLineDown)
+vmap K <action>(MoveLineUp)
+
+=============== 分屏快捷键 ====================
+" 后退
+nmap <C-o> <action>(Back)
+" 前进
+nmap <C-i> <action>(Forward)
+
+" 分屏快捷键
+nnoremap <silent> s <NOP>
+nnoremap <silent> sv :vsp<CR>
+nnoremap <silent> sh :sp<CR>
+
+" 关闭当前"
+nnoremap <silent> sc <C-w>c
+
+" alt + hjkl  窗口之间跳转, win中生效
+nnoremap <silent> <A-h> <C-w>h
+nnoremap <silent> <A-j> <C-w>j
+nnoremap <silent> <A-k> <C-w>k
+nnoremap <silent> <A-l> <C-w>l
+
+" 左右比例控制
+" nnoremap <silent> <C-Left> :vertical resize -2<CR>
+" nnoremap <silent> <C-Right> :vertical resize +2<CR>
+" nnoremap <silent> s, :vertical resize -10<CR>
+" nnoremap <silent> s. :vertical resize +10<CR>
+" 上下比例控制
+" nnoremap <silent> <C-Down> :resize +2<CR>
+" nnoremap <silent> <C-Up> :resize -2<CR>
+" nnoremap <silent> sj :resize +10<CR>
+" nnoremap <silent> sk :resize -10<CR>
+" 相等比例
+" noremap <silent> s= <C-w>=
+" 关闭当前的窗口
+" nmap <C-w> <action>(CloseEditor)
+nmap <C-w> <action>(CloseTab) \| <action>(CloseContent) \| <action>(CloseThumbnails)
+" nmap <M-w> <action>(CloseContent)
+" 关闭所有窗口 ️
+nmap sa <action>(CloseAllEditors)
+" 重新打开关闭窗口
+nmap sr <Action>(ReopenClosedTab)
+" 关闭除了激活窗口以外的窗口
+nmap so <action>(CloseAllEditorsButActive)
+" 窗口最大化，并且隐藏其他窗口
+nmap sm <action>(UnsplitAll) \| <action>(HideAllWindows)
+
+" 关闭搜索高亮
+nmap <leader>nh :nohlsearch<CR>
+
+" 文件树
+" o open ,go open cursor not move , i hsplit , s vsplit
+set NERDTree
+nnoremap <leader>te :NERDTree<CR>
+" 将此文件在文件浏览器中定位
+nnoremap <leader>tw :NERDTreeFind<CR>
+nnoremap <leader>tc :NERDTreeClose<CR>
+nnoremap <leader>tr :NERDTreeRefreshRoot<CR>
+
+" 切换tab
+nmap <tab> <action>(NextTab)
+nmap <S-tab> <action>(PreviousTab)
+
+" 搜索框
+nmap <C-f> <action>(SearchEverywhere)
+nmap <C-p> <action>(FindInPath)
+
+" 注释方法
+nmap <C-/> <action>(CommentByLineComment)
+
+" 终端
+" 打开终端
+nmap <leader>to <Action>(Terminal.OpenInTerminal)
+" 激活终端
+nmap <leader>ta <Action>(ActivateTerminalToolWindow)
+" 隐藏终端"
+nmap <leader>th <Action>(HideActiveWindow)
+
 " 设置多光标
 set multiple-cursors
-" 设置文件树
-set NERDTree
-" 交换变量
-" cx{motion} 标记一个区域，重复使用就会交换两个区域的值,cxx交换整行,cxc清空缓存, 在visual模式下使用X
-set exchange
-
-" 多光标文件操作"
 nmap <C-n> <Plug>NextWholeOccurrence
 xmap <C-n> <Plug>NextWholeOccurrence
-" nmap <C-x> <Plug>SkipOccurrence
+nmap <C-x> <Plug>SkipOccurrence
 xmap <C-x> <Plug>SkipOccurrence
-" nmap <C-p> <Plug>RemoveOccurrence
+nmap <C-p> <Plug>RemoveOccurrence
 xmap <C-p> <Plug>RemoveOccurrence
 nmap <S-C-n> <Plug>AllWholeOccurrences
 xmap <S-C-n> <Plug>AllWholeOccurrences
 
-nmap <C-[> <Esc>
-vmap <C-[> <Esc>
+" 可视化模式下,paste之后不会替换yank的内容,这里可以被下面的替换组件代替
+" vmap p "_dP
 
-" Insert mode shortcut
-" inoremap <C-d> <Delete>
-" inoremap <Backspace> <Delete>
-" 解释下这里为什么注释掉上面这部分，因为可以使用原生的vim映射
-" <C-h> 默认是删除前一个字母等于<Backspace>
-" <C-w> 默认是删除前一个单词
-" <C-u> 默认是删除到行首
+" 设置替换插件
+set ReplaceWithRegister
+nmap s <Plug>ReplaceWithRegisterOperator
+nmap ss <Plug>ReplaceWithRegisterLine
+xmap p <Plug>ReplaceWithRegisterVisual
 
-" <C-o> 回到之前的位置
-" <C-i> 回到来之前位置的上一个位置
+" surround插件
+" ds 删除, ys 新增，vS 虚拟化模式增加
+set surround
 
-" ================================================================================================
-" = Ctrl开头 ====================================
-" ================================================================================================
-" 可视化模式下，选中行可以上下移动
-vmap <C-S-j> <action>(MoveLineDown)
-vmap <C-S-k> <action>(MoveLineUp)
+" exchange插件
+set exchange
+nmap sx <Plug>(Exchange)
+nmap sxx <Plug>(ExchangeLine)
+xmap X <Plug>(Exchange)
+nmap sxc <Plug>(ExchangeClear)
 
-" 切换spliter
-nmap <C-S-h> <action>(PrevSplitter)
-nmap <C-S-l> <action>(NextSplitter)
-" 切换tab
-nmap <C-S-j> <action>(PreviousTab)
-nmap <C-S-k> <action>(NextTab)
+" 快速选定函数和方法
+" 该方法添加了一个函数的motion对象，叫做a, daa删除函数参数包括逗号，dia删除函数参数不包括逗号,同理y,d,c都可以使用
+set argtextobj
 
-nmap L g_
-nmap H ^
-" nmap <C-l> g_
-" nmap <C-h> ^
+" 快速复制整个文档,这边不主动改建，不然因为延迟机制，会变慢
+set textobj-entire
+" 复制全部文档，包括头部空行
+" nnoremap <silent> ae <Plug>(textobj-entire-a)
+" 复制全部文档，不包括头部空行
+" nnoremap <silent> ie <Plug>(textobj-entire-i)
 
-" ctrl-0 ctrl-t 待用
+" easy motion插件, 如果用大写字母前进，那么就会选中所有内容
+set easymotion
+nmap f <Plug>(easymotion-f)
+nmap F <Plug>(easymotion-F)
+nmap t <Plug>(easymotion-t)
+nmap T <Plug>(easymotion-T)
+nmap ; <Plug>(easymotion-s)
 
-" 关于代码折叠 zc折叠代码 zo展开代码
 
+" 设置高亮插件
+set highlightedyank
+let g:highlightedyank_highlight_color = "rgba(100,149,237, 111)"
 
-" ================================================================================================
-" = g开头 ====================================
-" ================================================================================================
+" 折叠代码块"
+nmap zc <Action>(CollapseRegion)
+nmap zo <Action>(ExpandRegion)
+nmap zC <Action>(CollapseAllRegions)
+nmap zO <Action>(ExpandAllRegions)
+
+=======================================================
+================== lsp ================================
+=======================================================
 " 寻找下一个错误
 nmap gn <action>(GotoNextError)
 " 回到上一个错误
 nmap gp <action>(GotoPreviousError)
+" 去到函数申明的地方
+nmap gd <action>(GotoDeclaration)
+" 去到函数类型声明的地方
+nmap gD <action>(GotoTypeDeclaration)
 " 进入测试方法
 nmap gt <action>(GotoTest)
 " 回到函数方法上
 nmap gm <action>(MethodUp)
 " 寻找接口实现的
 nmap gi <action>(GotoImplementation)
-" 寻找函数使用的地方
-nmap gd <action>(GotoDeclaration)
-" 后退
-nmap gb <action>(Back)
-" 前进
-nmap gf <action>(Forward)
-" 回到上一次修改的地方,使用vim原生的跳转
-" nmap ga '.
-" 查找使用过的地方
-nmap gu <action>(FindUsages)
-
-
-" ================================================================================================
-" = 其他 ====================================
-" ================================================================================================
-" 可视化模式下，paste之后不会替换yank的内容
-vmap p "_dP
-
-" ================================================================================================
-" = Leader Keymaps =====================================
-" ================================================================================================
-" leaderkey
-nmap <SPACE> <Nop>
-let mapleader=" "
-let g:mapleader=" "
-set timeoutlen=2000
-
 
 " 格式化代码
 nmap <leader>fm <action>(ReformatCode) \| <action>(OptimizeImports)
 
+" 复制文件
+nmap <leader>rp <Action>(Refactorings.QuickListPopupAction)
+
+" 查找使用过的地方
+nmap gu <action>(FindUsages)
 " lsp: 重命名
 nmap <leader>lr <action>(RenameElement)
 " 展示目的
@@ -155,48 +286,20 @@ vmap <leader>lw <action>(SurroundWith)
 " 代码去掉包裹
 vmap <leader>lu <action>(Unwrap)
 
-" s开头还没用
-
-" 关闭搜索高亮
-nmap <leader>nh :nohlsearch<CR>
-" 高亮当前block
-nmap <leader>rh :action Rainbow.ScopeOutsideHighlightingRestrainAction<CR>
-
-" 快速关闭当前窗口
-" nmap <leader>c :q!<CR>
-nmap <M-w> <action>(CloseContent)
-
-" 打开project目录
-nmap <leader>te :NERDTree<CR>
-" 关闭project目录
-nmap <leader>tc :NERDTreeClose<CR>
+=======================================================
+================= debug ===============================
+=======================================================
+nmap <leader>dr <Action>(ContextRun)
+nmap <leader>dc <Action>(RunClass)
+nmap <leader>dt <Action>(RerunTests)
+nmap <leader>df <Action>(RerunFailedTests)
+nmap <leader>dp <Action>(ChooseRunConfiguration)
 
 
-" ================================================================================================
-" = w开头，窗口相关====================================
-" ================================================================================================
-" 搜索全局
-nmap <leader>fg <action>(FindInPath)
 
-" ================================================================================================
-" = w开头，窗口相关====================================
-" ================================================================================================
-" 关闭所有窗口 ️
-nmap <leader>wa <action>(CloseAllEditors)
-" 关闭除了激活窗口以外的窗口
-nmap <leader>wo <action>(CloseAllEditorsButActive)
-" 窗口最大化，并且隐藏其他窗口
-nmap <leader>wm <action>(UnsplitAll) \| <action>(HideAllWindows)
-" 分离出一个竖直的窗口
-nmap <leader>wv <action>(SplitVertically)
-" 分离出一个水平的窗口
-nmap <leader>wh <action>(SplitHorizontally)
-" 关闭当前的tab
-" nmap <leader>wc <action>(CloseActiveTab)
-
-" ================================================================================================
-" = e开头，用于抽离方法====================================
-" ================================================================================================
+================================================================================================
+= e开头，用于抽离方法====================================
+================================================================================================
 " e: 用于抽离方法,可视化模式下，将选中到变量抽离出来
 " extract method/function
 vmap <leader>em <action>(ExtractMethod)
@@ -208,10 +311,3 @@ vmap <leader>ef <action>(IntroduceField)
 vmap <leader>ev <action>(IntroduceVariable)
 " Inline" variable
 vmap <leader>ei <action>(Inline)
-
-" 输入法自动切换
-let context_aware=0
-let keep_input_source_in_normal="com.apple.keylayout.ABC"
-let keep_input_source_in_insert="com.sogou.inputmethod.sogou.pinyin"
-set keep-english-in-normal-and-restore-in-insert
-
