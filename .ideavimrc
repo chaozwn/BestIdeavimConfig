@@ -42,10 +42,7 @@ let mapleader=" "
 let g:mapleader=" "
 
 " 高亮当前block
-nmap <leader>rh :action Rainbow.ScopeOutsideHighlightingRestrainAction<CR>
-
-
-
+nmap <leader>h :action Rainbow.ScopeOutsideHighlightingRestrainAction<CR>
 
 " 输入法自动切换
 let context_aware=0
@@ -166,6 +163,8 @@ nmap <S-tab> <action>(PreviousTab)
 " 搜索框
 nmap <C-f> <action>(SearchEverywhere)
 nmap <C-p> <action>(FindInPath)
+nmap <C-a> <Action>(GotoAction)
+nmap <C-c> <Action>(GotoClass)
 
 " 注释方法
 nmap <C-/> <action>(CommentByLineComment)
@@ -184,8 +183,8 @@ nmap <C-n> <Plug>NextWholeOccurrence
 xmap <C-n> <Plug>NextWholeOccurrence
 nmap <C-x> <Plug>SkipOccurrence
 xmap <C-x> <Plug>SkipOccurrence
-nmap <C-p> <Plug>RemoveOccurrence
-xmap <C-p> <Plug>RemoveOccurrence
+nmap <C-m> <Plug>RemoveOccurrence
+xmap <C-m> <Plug>RemoveOccurrence
 nmap <S-C-n> <Plug>AllWholeOccurrences
 xmap <S-C-n> <Plug>AllWholeOccurrences
 
@@ -260,11 +259,8 @@ nmap gi <action>(GotoImplementation)
 " 格式化代码
 nmap <leader>fm <action>(ReformatCode) \| <action>(OptimizeImports)
 
-" 复制文件
-nmap <leader>rp <Action>(Refactorings.QuickListPopupAction)
-
-" 查找使用过的地方
-nmap gu <action>(FindUsages)
+" 查找最近使用的地方
+" nmap <leader>ll <action>(RecentLocations)
 " lsp: 重命名
 nmap <leader>lr <action>(RenameElement)
 " 展示目的
@@ -284,18 +280,7 @@ nmap <leader>lg <action>(Generate)
 " 代码包裹一层
 vmap <leader>lw <action>(SurroundWith)
 " 代码去掉包裹
-vmap <leader>lu <action>(Unwrap)
-
-=======================================================
-================= debug ===============================
-=======================================================
-nmap <leader>dr <Action>(ContextRun)
-nmap <leader>dc <Action>(RunClass)
-nmap <leader>dt <Action>(RerunTests)
-nmap <leader>df <Action>(RerunFailedTests)
-nmap <leader>dp <Action>(ChooseRunConfiguration)
-
-
+vmap <leader>lW <action>(Unwrap)
 
 ================================================================================================
 = e开头，用于抽离方法====================================
@@ -311,3 +296,19 @@ vmap <leader>ef <action>(IntroduceField)
 vmap <leader>ev <action>(IntroduceVariable)
 " Inline" variable
 vmap <leader>ei <action>(Inline)
+
+=======================================================
+================= debug ===============================
+=======================================================
+" nmap <leader>dr <Action>(ContextRun)
+" nmap <leader>dc <Action>(RunClass)
+" nmap <leader>dt <Action>(RerunTests)
+" nmap <leader>df <Action>(RerunFailedTests)
+" nmap <leader>dp <Action>(ChooseRunConfiguration)
+
+" 复制文件
+" nmap <leader>rp <Action>(Refactorings.QuickListPopupAction)
+
+" 查找Usage
+" nmap <leader>lu <action>(FindUsages)
+
