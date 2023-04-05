@@ -240,7 +240,11 @@ nmap f <Plug>(easymotion-f)
 nmap F <Plug>(easymotion-F)
 nmap t <Plug>(easymotion-t)
 nmap T <Plug>(easymotion-T)
-nmap ; <Plug>(easymotion-s)
+nmap ; <Plug>(easymotion-j)
+nmap , <Plug>(easymotion-k)
+nmap <leader>s <Plug>(easymotion-s)
+nmap <leader>nj <Plug>(easymotion-n)
+nmap <leader>nk <Plug>(easymotion-N)
 
 
 " 设置高亮插件
