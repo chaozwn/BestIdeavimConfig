@@ -156,6 +156,12 @@ nmap sm <action>(UnsplitAll) \| <action>(HideAllWindows)
 " 关闭搜索高亮
 nmap <leader>nh :nohlsearch<CR>
 
+" previous method
+noremap [[ <ESC>:action MethodUp<CR>
+" next method
+noremap ]] <ESC>:action MethodDown<CR>
+
+
 " 文件树
 " o open ,go open cursor not move , i hsplit , s vsplit
 set NERDTree
