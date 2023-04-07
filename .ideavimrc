@@ -52,7 +52,6 @@ let keep_input_source_in_normal="com.apple.keylayout.ABC"
 let keep_input_source_in_insert="com.sogou.inputmethod.sogou.pinyin"
 set keep-english-in-normal-and-restore-in-insert
 
-
 " ================================================
 " ============ key bindings ====================
 " ================================================
@@ -183,6 +182,7 @@ nmap <C-c> <Action>(GotoClass)
 
 " 注释方法
 nmap <C-/> <action>(CommentByLineComment)
+vmap <C-/> <action>(CommentByLineComment)
 
 " 终端
 " 打开终端
@@ -236,12 +236,12 @@ set textobj-entire
 
 " easy motion插件, 如果用大写字母前进，那么就会选中所有内容
 set easymotion
-nmap f <Plug>(easymotion-f)
-nmap F <Plug>(easymotion-F)
-nmap t <Plug>(easymotion-t)
-nmap T <Plug>(easymotion-T)
-nmap ; <Plug>(easymotion-j)
-nmap , <Plug>(easymotion-k)
+"nmap f <Plug>(easymotion-f)
+"nmap F <Plug>(easymotion-F)
+"nmap t <Plug>(easymotion-t)
+"nmap T <Plug>(easymotion-T)
+nmap <leader>j <Plug>(easymotion-j)
+nmap <leader>k <Plug>(easymotion-k)
 nmap <leader>s <Plug>(easymotion-s)
 nmap <leader>nj <Plug>(easymotion-n)
 nmap <leader>nk <Plug>(easymotion-N)
@@ -267,9 +267,9 @@ nmap gp <action>(GotoPreviousError)
 " 去到函数申明的地方
 nmap gd <action>(GotoDeclaration)
 " 去到函数类型声明的地方
-nmap gD <action>(GotoTypeDeclaration)
+nmap gt <action>(GotoTypeDeclaration)
 " 进入测试方法
-nmap gt <action>(GotoTest)
+nmap ge <action>(GotoTest)
 " 回到函数方法上
 nmap gm <action>(MethodUp)
 " 寻找接口实现的
