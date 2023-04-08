@@ -128,20 +128,16 @@ nnoremap <silent> <A-k> <C-w>k
 nnoremap <silent> <A-l> <C-w>l
 
 " 左右比例控制
-" nnoremap <silent> <C-Left> :vertical resize -2<CR>
-" nnoremap <silent> <C-Right> :vertical resize +2<CR>
-" nnoremap <silent> s, :vertical resize -10<CR>
-" nnoremap <silent> s. :vertical resize +10<CR>
+nmap <M-[> <action>(StretchSplitToLeft)
+nmap <M-]> <action>(StretchSplitToRight)
 " 上下比例控制
-" nnoremap <silent> <C-Down> :resize +2<CR>
-" nnoremap <silent> <C-Up> :resize -2<CR>
-" nnoremap <silent> sj :resize +10<CR>
-" nnoremap <silent> sk :resize -10<CR>
+nmap <M--> <action>(StretchSplitToTop)
+nmap <M-=> <action>(StretchSplitToBottom)
 " 相等比例
-" noremap <silent> s= <C-w>=
+" nmap s= <action>(tabshifter.Actions.EqualSizeSplit)
 " 关闭当前的窗口
 " nmap <C-w> <action>(CloseEditor)
-nmap <C-w> <action>(CloseTab) \| <action>(CloseContent) \| <action>(CloseThumbnails)
+" nmap <C-w> <action>(CloseTab) \| <action>(CloseContent) \| <action>(CloseThumbnails)
 " nmap <M-w> <action>(CloseContent)
 " 关闭所有窗口 ️
 nmap sa <action>(CloseAllEditors)
