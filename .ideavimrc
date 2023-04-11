@@ -159,7 +159,7 @@ nmap <M-=> <action>(StretchSplitToBottom)
 " 关闭所有窗口 ️
 nmap sa <action>(CloseAllEditors)
 " 重新打开关闭窗口
-nmap sr <Action>(ReopenClosedTab)
+nmap sr <action>(ReopenClosedTab)
 " 关闭除了激活窗口以外的窗口
 nmap so <action>(CloseAllEditorsButActive)
 " 窗口最大化，并且隐藏其他窗口
@@ -211,7 +211,7 @@ nmap <leader>to <Action>(Terminal.OpenInTerminal)
 " 激活终端
 nmap <leader>ta <Action>(ActivateTerminalToolWindow)
 " 隐藏终端"
-nmap <leader>th <Action>(HideActiveWindow)
+nmap <leader>th <action>(HideAllWindows)
 
 " 设置多光标
 set multiple-cursors
@@ -351,7 +351,6 @@ vmap <leader>ei <action>(Inline)
 "=============================================================
 "sethandler <C-C> n-v:ide i:vim
 " IEDA
-sethandler <C-F> a:ide
 sethandler <C-B> a:ide
 sethandler <C-U> a:ide
 sethandler <C-T> a:ide
@@ -359,13 +358,14 @@ sethandler <C-K> a:ide
 sethandler <C-S> a:ide
 sethandler <C-E> a:ide
 sethandler <C-Q> a:ide
-sethandler <C-P> a:ide
 sethandler <C-N> a:ide
 sethandler <C-M> a:ide
 sethandler <C-L> a:ide
-sethandler <C-C> a:ide
 sethandler <C-D> a:ide
 " VIM
+sethandler <C-C> a:vim
+sethandler <C-P> a:vim
+sethandler <C-F> a:vim
 sethandler <C-I> a:vim
 sethandler <C-O> a:vim
 sethandler <C-W> a:vim
