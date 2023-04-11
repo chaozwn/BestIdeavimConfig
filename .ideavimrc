@@ -1,12 +1,17 @@
 " ================================================
 " ============ Basic settings ====================
 " ================================================
+set encoding=utf-8
+set autoindent
 set idearefactormode=keep
 set visualbell
+"ide和vim marks同步"
+set ideamarks
 set noerrorbells
 set noideadelaymacro
 set notimeout
-" set timeoutlen=500
+
+"https://github.com/JetBrains/ideavim/blob/master/doc/ideajoin-examples.md set timeoutlen=500
 set ideajoin
 set wrap
 
@@ -96,8 +101,20 @@ nnoremap <silent> <C-d> 10j
 nnoremap <silent> <C-u> 10k
 
 " 开启魔术搜索
-" nnoremap / /\\v
-" vnoremap / /\\v
+set magic
+nnoremap / /\\v
+vnoremap / /\\v
+
+" 显示匹配括号"
+nmap n nzz
+nmap N Nzz
+vmap n nzz
+vmap N Nzz
+
+"visual 模式 下 按* 号 搜索 光标选中的内容(对已选中的内容进行查找)
+vmap * "ry/<C-R>r<CR>
+
+
 
 " 在visual模式下缩进代码，缩进之后任然可以继续选中区域
 vnoremap <silent> < <gv
@@ -137,7 +154,7 @@ nmap <M-=> <action>(StretchSplitToBottom)
 " nmap s= <action>(tabshifter.Actions.EqualSizeSplit)
 " 关闭当前的窗口
 " nmap <C-w> <action>(CloseEditor)
-" nmap <C-w> <action>(CloseTab) \| <action>(CloseContent) \| <action>(CloseThumbnails)
+:map <C-w> <action>(CloseTab) \| <action>(CloseContent) \| <action>(CloseThumbnails)
 " nmap <M-w> <action>(CloseContent)
 " 关闭所有窗口 ️
 nmap sa <action>(CloseAllEditors)
@@ -155,7 +172,15 @@ nmap <leader>nh :nohlsearch<CR>
 noremap [[ <ESC>:action MethodUp<CR>
 " next method
 noremap ]] <ESC>:action MethodDown<CR>
+" 上一个修改点
+nmap (( <Action>(VcsShowPrevChangeMarker)
+" 下一个修改点
+nmap )) <Action>(VcsShowNextChangeMarker)
 
+" 选择模式扩大选择范围
+vmap v <Action>(EditorSelectWord)
+" 选择模式缩小选择范围
+vmap V <Action>(EditorUnSelectWord)
 
 " 文件树
 " o open ,go open cursor not move , i hsplit , s vsplit
@@ -321,9 +346,30 @@ vmap <leader>ei <action>(Inline)
 " nmap <leader>df <Action>(RerunFailedTests)
 " nmap <leader>dp <Action>(ChooseRunConfiguration)
 
-" 复制文件
-" nmap <leader>rp <Action>(Refactorings.QuickListPopupAction)
-
-" 查找Usage
-" nmap <leader>lu <action>(FindUsages)
-
+"=============================================================
+" 默认键位配置
+"=============================================================
+"sethandler <C-C> n-v:ide i:vim
+" IEDA
+sethandler <C-F> a:ide
+sethandler <C-B> a:ide
+sethandler <C-U> a:ide
+sethandler <C-T> a:ide
+sethandler <C-K> a:ide
+sethandler <C-S> a:ide
+sethandler <C-E> a:ide
+sethandler <C-Q> a:ide
+sethandler <C-P> a:ide
+sethandler <C-N> a:ide
+sethandler <C-M> a:ide
+sethandler <C-L> a:ide
+sethandler <C-C> a:ide
+sethandler <C-D> a:ide
+" VIM
+sethandler <C-I> a:vim
+sethandler <C-O> a:vim
+sethandler <C-W> a:vim
+sethandler <C-A> a:vim
+"=============================================================
+" 默认键位配置
+"=============================================================
