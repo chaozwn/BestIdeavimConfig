@@ -82,8 +82,10 @@ vnoremap <silent> 0 ^
 vnoremap <silent> ^ 0
 
 " 命令行下CtrL + j/k上一个下一个
-" cmap <C-j> <C-n>
-" cmap <C-k> <C-p>
+"cmap <C-j> <C-n>
+"cmap <C-k> <C-p>
+"tmap <C-j> <C-n>
+"tmap <C-k> <C-p>
 
 " 保存文件
 nnoremap <silent> <leader>w :w<CR>
@@ -99,12 +101,14 @@ nnoremap <silent> <leader>q :qa!<CR>
 " vnoremap k gk
 
 " 上下滚动浏览
-nnoremap <silent> <C-j> 5j
-nnoremap <silent> <C-k> 5k
-vnoremap <silent> <C-j> 5j
-vnoremap <silent> <C-k> 5k
+"nnoremap <silent> <C-j> 5j
+"nnoremap <silent> <C-k> 5k
+"vnoremap <silent> <C-j> 5j
+"vnoremap <silent> <C-k> 5k
 nnoremap <silent> <C-d> 10j
 nnoremap <silent> <C-u> 10k
+vnoremap <silent> <C-j> 10j
+vnoremap <silent> <C-k> 10k
 
 " 开启魔术搜索
 set magic
@@ -142,22 +146,22 @@ nnoremap <silent> sh :sp<CR>
 nnoremap <silent> sc <C-w>c
 
 " alt + hjkl  窗口之间跳转, win中生效
-nnoremap <silent> <A-h> <C-w>h
-nnoremap <silent> <A-j> <C-w>j
-nnoremap <silent> <A-k> <C-w>k
-nnoremap <silent> <A-l> <C-w>l
+nnoremap <silent> <C-h> <C-w>h
+nnoremap <silent> <C-j> <C-w>j
+nnoremap <silent> <C-k> <C-w>k
+nnoremap <silent> <C-l> <C-w>l
 
 " 左右比例控制
-nmap <M-[> <action>(StretchSplitToLeft)
-nmap <M-]> <action>(StretchSplitToRight)
+nmap <C-left> <action>(StretchSplitToLeft)
+nmap <C-right> <action>(StretchSplitToRight)
 " 上下比例控制
-nmap <M--> <action>(StretchSplitToTop)
-nmap <M-=> <action>(StretchSplitToBottom)
+nmap <C-up> <action>(StretchSplitToTop)
+nmap <C-down> <action>(StretchSplitToBottom)
 " 相等比例
 " nmap s= <action>(tabshifter.Actions.EqualSizeSplit)
 " 关闭当前的窗口
 " nmap <C-w> <action>(CloseEditor)
-:map <C-w> <action>(CloseTab) \| <action>(CloseContent) \| <action>(CloseThumbnails)
+" map <C-w> <action>(CloseTab) \| <action>(CloseContent) \| <action>(CloseThumbnails)
 " nmap <M-w> <action>(CloseContent)
 " 关闭所有窗口 ️
 nmap sa <action>(CloseAllEditors)
@@ -199,10 +203,11 @@ nmap <tab> <action>(NextTab)
 nmap <S-tab> <action>(PreviousTab)
 
 " 搜索框
-nmap <C-f> <action>(SearchEverywhere)
-nmap <C-p> <action>(FindInPath)
-nmap <C-a> <Action>(GotoAction)
-nmap <C-c> <Action>(GotoClass)
+nmap <leader>fe <action>(SearchEverywhere)
+nmap <leader>ff <action>(GotoFile)
+nmap <leader>fp <action>(FindInPath)
+nmap <leader>fa <Action>(GotoAction)
+nmap <leader>fc <Action>(GotoClass)
 
 " 注释方法
 nmap <C-/> <action>(CommentByLineComment)
@@ -356,15 +361,18 @@ vmap <leader>ei <action>(Inline)
 "sethandler <C-C> n-v:ide i:vim
 " IDEA
 sethandler <C-B> a:ide
-sethandler <C-U> a:ide
 sethandler <C-T> a:ide
-sethandler <C-K> a:ide
 sethandler <C-S> a:ide
 sethandler <C-E> a:ide
-sethandler <C-Q> a:ide
-sethandler <C-L> a:ide
-sethandler <C-D> a:ide
 " VIM
+sethandler <C-Q> a:vim
+sethandler <C-V> a:vim
+sethandler <C-U> a:vim
+sethandler <C-D> a:vim
+sethandler <C-H> a:vim
+sethandler <C-J> a:vim
+sethandler <C-K> a:vim
+sethandler <C-L> a:vim
 sethandler <C-M> a:vim
 sethandler <C-N> a:vim
 sethandler <C-C> a:vim
