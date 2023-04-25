@@ -12,7 +12,7 @@ ln -s 项目/.ideavimrc ~/.ideavimrc
 vim详细的操作文档，可以参考博客:
 link: https://chaozwn.github.io/2022/12/26/vim%E5%91%BD%E4%BB%A4%E6%98%8E%E7%BB%86/
 
-#### 安装karabiner
+#### 安装marabiner
 1. put those json config files into '$HOME/.config/karabiner/assets/complex_modifications'
 2. open karabiner element, goto complex modifications tab, click add rule then add rules we set.
 
