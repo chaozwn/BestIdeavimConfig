@@ -105,15 +105,15 @@ nnoremap <silent> <leader>q :qa!<CR>
 "nnoremap <silent> <C-k> 5k
 "vnoremap <silent> <C-j> 5j
 "vnoremap <silent> <C-k> 5k
-nnoremap <silent> <C-d> 10j
-nnoremap <silent> <C-u> 10k
-vnoremap <silent> <C-j> 10j
-vnoremap <silent> <C-k> 10k
+nnoremap <silent> <C-d> 5j
+nnoremap <silent> <C-u> 5k
+vnoremap <silent> <C-u> 5j
+vnoremap <silent> <C-d> 5k
 
 " 开启魔术搜索
-set magic
-nnoremap / /\\v
-vnoremap / /\\v
+"set magic
+"nnoremap / /\\v
+"vnoremap / /\\v
 
 nmap n nzz
 nmap N Nzz
@@ -324,6 +324,7 @@ nmap <leader>lp <action>(ParameterInfo)
 nmap <leader>lt <action>(ExpressionTypeInfo)
 " 查看java doc 一般用来查看数据类型
 nmap <leader>lj <action>(QuickJavaDoc)
+nmap K <action>(QuickJavaDoc)
 " 调用Generate
 nmap <leader>lg <action>(Generate)
 " 代码包裹一层
@@ -354,6 +355,8 @@ vmap <leader>ei <action>(Inline)
 " nmap <leader>dt <Action>(RerunTests)
 " nmap <leader>df <Action>(RerunFailedTests)
 " nmap <leader>dp <Action>(ChooseRunConfiguration)
+nmap <leader>dr <Action>(Run)
+nmap <leader>dd <Action>(Debug)
 
 "=============================================================
 " 默认键位配置
@@ -365,13 +368,14 @@ sethandler <C-T> a:ide
 sethandler <C-S> a:ide
 sethandler <C-E> a:ide
 " VIM
+sethandler <C-[> n-v:ide i:vim
 sethandler <C-Q> a:vim
 sethandler <C-V> a:vim
 sethandler <C-U> a:vim
 sethandler <C-D> a:vim
 sethandler <C-H> a:vim
-sethandler <C-J> a:vim
-sethandler <C-K> a:vim
+sethandler <C-J> n-v:vim i:ide
+sethandler <C-K> n-v:vim i:ide
 sethandler <C-L> a:vim
 sethandler <C-M> a:vim
 sethandler <C-N> a:vim
@@ -385,3 +389,5 @@ sethandler <C-A> a:vim
 "=============================================================
 " 默认键位配置
 "=============================================================
+"imap <C-K> <Action>(EditorUp)
+"imap <C-J> <Action>(EditorDown)

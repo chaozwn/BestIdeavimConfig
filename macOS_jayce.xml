@@ -2,6 +2,10 @@
   <action id="ActivateBigDataToolWindowToolWindow">
     <keyboard-shortcut first-keystroke="shift ctrl meta b" />
   </action>
+  <action id="ChangesView.GroupBy.Directory">
+    <keyboard-shortcut first-keystroke="ctrl p" />
+    <keyboard-shortcut first-keystroke="ctrl k" />
+  </action>
   <action id="CloseGotItTooltip">
     <keyboard-shortcut first-keystroke="escape" />
     <keyboard-shortcut first-keystroke="ctrl open_bracket" />
@@ -52,12 +56,24 @@
     <keyboard-shortcut first-keystroke="f1" />
     <mouse-shortcut keystroke="control button2" />
   </action>
+  <action id="ServiceView.GroupByServiceGroups">
+    <keyboard-shortcut first-keystroke="ctrl p" />
+    <keyboard-shortcut first-keystroke="ctrl k" />
+  </action>
   <action id="Terminal.SwitchFocusToEditor">
     <keyboard-shortcut first-keystroke="escape" />
     <keyboard-shortcut first-keystroke="ctrl open_bracket" />
   </action>
+  <action id="TodoViewGroupByShowPackages">
+    <keyboard-shortcut first-keystroke="ctrl p" />
+    <keyboard-shortcut first-keystroke="ctrl k" />
+  </action>
   <action id="TypeHierarchy" />
   <action id="TypeHierarchyBase.BaseOnThisType" />
+  <action id="UsageGrouping.Directory">
+    <keyboard-shortcut first-keystroke="ctrl p" />
+    <keyboard-shortcut first-keystroke="ctrl k" />
+  </action>
   <action id="Vcs.Log.ShowTooltip">
     <keyboard-shortcut first-keystroke="f1" />
     <mouse-shortcut keystroke="control button2" />
