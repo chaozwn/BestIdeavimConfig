@@ -76,6 +76,9 @@ nnoremap <silent> g_ $
 vnoremap <silent> $ g_
 vnoremap <silent> g_ $
 
+nnoremap <silent> L g_
+nnoremap <silent> H ^
+
 nnoremap <silent> 0 ^
 nnoremap <silent> ^ 0
 vnoremap <silent> 0 ^
@@ -132,10 +135,10 @@ vmap J <action>(MoveLineDown)
 vmap K <action>(MoveLineUp)
 
 =============== 分屏快捷键 ====================
-" 后退
-nmap <C-o> <action>(Back)
+" 后退 ideavim 2.0.0修复了这个问题
+" nmap <C-o> <action>(Back)
 " 前进
-nmap <C-i> <action>(Forward)
+" nmap <C-i> <action>(Forward)
 
 " 分屏快捷键
 nnoremap <silent> s <NOP>
@@ -192,10 +195,10 @@ vmap V <Action>(EditorUnSelectWord)
 " 文件树
 " o open ,go open cursor not move , i hsplit , s vsplit
 set NERDTree
-nnoremap <leader>te :NERDTree<CR>
+nnoremap <leader>o :NERDTreeFocus<CR>
 " 将此文件在文件浏览器中定位
 nnoremap <leader>tw :NERDTreeFind<CR>
-nnoremap <leader>tc :NERDTreeClose<CR>
+nnoremap <leader>e :NERDTreeToggle<CR>
 nnoremap <leader>tr :NERDTreeRefreshRoot<CR>
 
 " 切换tab
@@ -362,13 +365,14 @@ nmap <leader>dd <Action>(Debug)
 " 默认键位配置
 "=============================================================
 "sethandler <C-C> n-v:ide i:vim
+
 " IDEA
 sethandler <C-B> a:ide
-sethandler <C-T> a:ide
 sethandler <C-S> a:ide
 sethandler <C-E> a:ide
+sethandler <C-[> a:ide
 " VIM
-sethandler <C-[> n-v:ide i:vim
+sethandler <C-T> a:vim
 sethandler <C-Q> a:vim
 sethandler <C-V> a:vim
 sethandler <C-U> a:vim
