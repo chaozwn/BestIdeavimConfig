@@ -4,32 +4,26 @@
 set encoding=utf-8
 " 自动缩进
 set autoindent
-" 设置 IDEA 重构模式为保持
-set idearefactormode=keep
-set visualbell
-set noerrorbells
 " ide和vim marks同步
 set ideamarks
 " 禁用idea延迟宏
-set noideadelaymacro
 set showmatch
 
 set timeout
 set timeoutlen=500
 
-" https://github.com/JetBrains/ideavim/blob/master/doc/ideajoin-examples.md
 set ideajoin
 set wrap
 
 "粘贴板共享
-set clipboard+='unnamed,unnamedplus'
+set clipboard+=unnamed
 set clipboard+=ideaput
 
 "移动光标的时候周围保留8行
 " set scrolloff=8
 
 "记住历史操作200条
-set history=200
+set history=2000
 
 "使用相对行号
 set number
@@ -49,7 +43,6 @@ set showcmd
 set showmode
 
 " leaderkey
-nmap <SPACE> <Nop>
 let mapleader=" "
 let g:mapleader=" "
 
@@ -136,9 +129,9 @@ vmap K <action>(MoveLineUp)
 
 =============== 分屏快捷键 ====================
 " 后退 ideavim 2.0.0修复了这个问题
-" nmap <C-o> <action>(Back)
+nmap <C-o> <action>(Back)
 " 前进
-" nmap <C-i> <action>(Forward)
+nmap <C-i> <action>(Forward)
 
 " 分屏快捷键
 nnoremap <silent> s <NOP>
@@ -171,7 +164,7 @@ nmap sa <action>(CloseAllEditors)
 " 重新打开关闭窗口
 nmap sr <action>(ReopenClosedTab)
 " 关闭除了激活窗口以外的窗口
-nmap so <action>(CloseAllEditorsButActive)
+nmap <leader>bo <action>(CloseAllEditorsButActive)
 " 窗口最大化，并且隐藏其他窗口
 nmap sm <action>(UnsplitAll) \| <action>(HideAllWindows)
 
@@ -202,8 +195,10 @@ nnoremap <leader>e :NERDTreeToggle<CR>
 nnoremap <leader>tr :NERDTreeRefreshRoot<CR>
 
 " 切换tab
-nmap <tab> <action>(NextTab)
-nmap <S-tab> <action>(PreviousTab)
+nmap ]b <action>(NextTab)
+nmap [b <action>(PreviousTab)
+nmap <Tab> <action>(NextTab)
+nmap <S-Tab> <action>(PreviousTab)
 
 " 搜索框
 nmap <leader>fe <action>(SearchEverywhere)
@@ -285,40 +280,41 @@ set highlightedyank
 let g:highlightedyank_highlight_color = "rgba(100,149,237, 111)"
 
 " 折叠代码块
-nmap zc <Action>(CollapseRegion)
+nmap za <Action>(CollapseRegion)
 nmap zo <Action>(ExpandRegion)
-nmap zC <Action>(CollapseAllRegions)
+nmap zA <Action>(CollapseAllRegions)
 nmap zO <Action>(ExpandAllRegions)
 
 =======================================================
 ================== lsp ================================
 =======================================================
 " 寻找下一个错误
-nmap gn <action>(GotoNextError)
+nmap ]d <action>(GotoNextError)
 " 回到上一个错误
-nmap gp <action>(GotoPreviousError)
+nmap [d <action>(GotoPreviousError)
 " 去到函数申明的地方
 nmap gd <action>(GotoDeclaration)
 " 去到函数类型声明的地方
-nmap gt <action>(GotoTypeDeclaration)
+nmap gy <action>(GotoTypeDeclaration)
 " 进入测试方法
-nmap ge <action>(GotoTest)
+nmap gE <action>(GotoTest)
 " 回到函数方法上
 nmap gm <action>(MethodUp)
 " 寻找接口实现的
-nmap gi <action>(GotoImplementation)
+nmap gI <action>(GotoImplementation)
 
 " 格式化代码
-nmap <leader>fm <action>(ReformatCode) \| <action>(OptimizeImports)
+nmap <leader>lf <action>(ReformatCode) \| <action>(OptimizeImports) \| <action>(Javascript.Linters.EsLint.Fix) 
 
 " 查找最近使用的地方
 " nmap <leader>ll <action>(RecentLocations)
 " lsp: 重命名
 nmap <leader>lr <action>(RenameElement)
 " 展示目的
-nmap <leader>li <action>(ShowIntentionActions)
+nmap <leader>la <action>(ShowIntentionActions)
 " 展示错误提示
-nmap <leader>le <action>(ShowErrorDescription)
+nmap <leader>ld <action>(ShowErrorDescription)
+nmap gl <action>(ShowErrorDescription)
 " 查看文件的structure
 nmap <leader>ls <action>(FileStructurePopup)
 " 查看参数

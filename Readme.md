@@ -3,6 +3,9 @@
 #### 创建.ideavimrc的软连接
 ```shell
 ln -s 项目/.ideavimrc ~/.ideavimrc
+
+cd /Users/mac/Library/Application Support/JetBrains/WebStorm2023.1/keymaps
+ln -s ~/ideavim/macOS_jayce.xml .
 ```
 
 #### idea安装插件
