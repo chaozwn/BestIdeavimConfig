@@ -69,7 +69,7 @@ nnoremap <silent> g_ $
 vnoremap <silent> $ g_
 vnoremap <silent> g_ $
 
-nnoremap <silent> L g_
+nnoremap <silent> L $
 nnoremap <silent> H ^
 
 nnoremap <silent> 0 ^
@@ -156,7 +156,8 @@ nmap <C-down> <action>(StretchSplitToBottom)
 " 相等比例
 " nmap s= <action>(tabshifter.Actions.EqualSizeSplit)
 " 关闭当前的窗口
-" nmap <C-w> <action>(CloseEditor)
+nmap <leader>c <action>(CloseEditor)
+" nmap <leader>wo <action>(CloseAllEditorsButActive)
 " map <C-w> <action>(CloseTab) \| <action>(CloseContent) \| <action>(CloseThumbnails)
 " nmap <M-w> <action>(CloseContent)
 " 关闭所有窗口 ️
@@ -213,11 +214,13 @@ vmap <C-/> <action>(CommentByLineComment)
 
 " 终端
 " 打开终端
-nmap <leader>to <Action>(Terminal.OpenInTerminal)
+nmap <leader>th <Action>(ActivateTerminalToolWindow)
+" 新建终端
+" nmap <A-w> <Action>(Terminal.OpenInTerminal)
 " 激活终端
-nmap <leader>ta <Action>(ActivateTerminalToolWindow)
+" nmap <leader>ta <Action>(ActivateTerminalToolWindow)
 " 隐藏终端
-nmap <leader>th <action>(HideAllWindows)
+" nmap <leader>th <action>(HideAllWindows)
 
 " 设置多光标
 set multiple-cursors

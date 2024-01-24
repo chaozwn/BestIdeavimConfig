@@ -37,6 +37,10 @@
     <keyboard-shortcut first-keystroke="f1" />
     <mouse-shortcut keystroke="control button2" />
   </action>
+  <action id="HideActiveWindow">
+    <keyboard-shortcut first-keystroke="shift escape" />
+    <keyboard-shortcut first-keystroke="ctrl quote" />
+  </action>
   <action id="QuickJavaDoc">
     <keyboard-shortcut first-keystroke="f1" />
     <mouse-shortcut keystroke="control button2" />
@@ -51,4 +55,5 @@
     <keyboard-shortcut first-keystroke="f1" />
     <mouse-shortcut keystroke="control button2" />
   </action>
+  <action id="copilot.disposeInlays" />
 </keymap>
