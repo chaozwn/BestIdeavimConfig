@@ -129,12 +129,12 @@ vmap K <action>(MoveLineUp)
 
 =============== 分屏快捷键 ====================
 " 后退 ideavim 2.0.0修复了这个问题
-nmap <C-o> <action>(Back)
+" nmap <C-o> <action>(Back)
 " 前进
-nmap <C-i> <action>(Forward)
+" nmap <C-i> <action>(Forward)
 
 " 分屏快捷键
-nnoremap <silent> s <NOP>
+" nnoremap <silent> s <NOP>
 nnoremap <silent> sv :vsp<CR>
 nnoremap <silent> sh :sp<CR>
 
@@ -161,9 +161,9 @@ nmap <leader>c <action>(CloseEditor)
 " map <C-w> <action>(CloseTab) \| <action>(CloseContent) \| <action>(CloseThumbnails)
 " nmap <M-w> <action>(CloseContent)
 " 关闭所有窗口 ️
-nmap sa <action>(CloseAllEditors)
+" nmap sa <action>(CloseAllEditors)
 " 重新打开关闭窗口
-nmap sr <action>(ReopenClosedTab)
+" nmap sr <action>(ReopenClosedTab)
 " 关闭除了激活窗口以外的窗口
 nmap <leader>bo <action>(CloseAllEditorsButActive)
 " 窗口最大化，并且隐藏其他窗口
@@ -234,24 +234,24 @@ nmap <S-C-n> <Plug>AllWholeOccurrences
 xmap <S-C-n> <Plug>AllWholeOccurrences
 
 " 可视化模式下,paste之后不会替换yank的内容,这里可以被下面的替换组件代替
-" vmap p "_dP
+vmap p "_dP
 
 " 设置替换插件
-set ReplaceWithRegister
-nmap s <Plug>ReplaceWithRegisterOperator
-nmap ss <Plug>ReplaceWithRegisterLine
-xmap p <Plug>ReplaceWithRegisterVisual
+" set ReplaceWithRegister
+" nmap s <Plug>ReplaceWithRegisterOperator
+" nmap ss <Plug>ReplaceWithRegisterLine
+" xmap p <Plug>ReplaceWithRegisterVisual
 
 " surround插件
 " ds 删除, ys 新增，vS 虚拟化模式增加
 set surround
 
 " exchange插件
-set exchange
-nmap sx <Plug>(Exchange)
-nmap sxx <Plug>(ExchangeLine)
-xmap X <Plug>(Exchange)
-nmap sxc <Plug>(ExchangeClear)
+" set exchange
+" nmap sx <Plug>(Exchange)
+" nmap sxx <Plug>(ExchangeLine)
+" xmap X <Plug>(Exchange)
+" nmap sxc <Plug>(ExchangeClear)
 
 " 快速选定函数和方法
 " 该方法添加了一个函数的motion对象，叫做a, daa删除函数参数包括逗号，dia删除函数参数不包括逗号,同理y,d,c都可以使用
@@ -273,7 +273,7 @@ set easymotion
 "nmap T <Plug>(easymotion-T)
 nmap <leader>j <Plug>(easymotion-j)
 nmap <leader>k <Plug>(easymotion-k)
-nmap <leader>s <Plug>(easymotion-s)
+nmap s <Plug>(easymotion-s)
 nmap <leader>nj <Plug>(easymotion-n)
 nmap <leader>nk <Plug>(easymotion-N)
 
