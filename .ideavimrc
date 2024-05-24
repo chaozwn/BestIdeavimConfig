@@ -101,10 +101,10 @@ nnoremap <silent> <leader>q :qa!<CR>
 "nnoremap <silent> <C-k> 5k
 "vnoremap <silent> <C-j> 5j
 "vnoremap <silent> <C-k> 5k
-nnoremap <silent> <C-d> 5j
 nnoremap <silent> <C-u> 5k
-vnoremap <silent> <C-u> 5j
-vnoremap <silent> <C-d> 5k
+nnoremap <silent> <C-d> 5j
+vnoremap <silent> <C-u> 5k
+vnoremap <silent> <C-d> 5j
 
 " 开启魔术搜索
 "set magic
